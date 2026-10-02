@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kigali Property Hub</title>
+    <title>Kigali Property Hub | Properties & Cars in Rwanda</title>
 
     <meta name="description"
-          content="Kigali Property Hub - Real estate platform for discovering, buying, selling, and renting properties in Kigali, Rwanda.">
+          content="Kigali Property Hub helps you find properties and cars for sale and rent in Kigali, Rwanda.">
 
     <style>
         * {
@@ -22,32 +22,36 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
+            color: #1b1b1b;
+            background: #f7f7f7;
             line-height: 1.6;
-            color: #222;
-            background: #f8f8f8;
         }
 
         /* NAVBAR */
+
         header {
-            background: #111;
-            color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: #111;
         }
 
         nav {
             max-width: 1200px;
             margin: auto;
-            padding: 18px 25px;
+            min-height: 72px;
+            padding: 0 25px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
+            color: white;
             font-size: 22px;
-            font-weight: bold;
+            font-weight: 800;
+            text-decoration: none;
         }
 
         .logo span {
@@ -56,13 +60,14 @@
 
         .nav-links {
             display: flex;
-            gap: 25px;
             list-style: none;
+            gap: 28px;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
+            font-weight: 600;
             font-size: 15px;
         }
 
@@ -71,54 +76,64 @@
         }
 
         /* HERO */
+
         .hero {
-            min-height: 85vh;
+            min-height: 88vh;
+
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
 
             background:
-                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
-                url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80");
+                linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.65)
+                ),
+                url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85");
 
             background-size: cover;
             background-position: center;
+
             color: white;
         }
 
         .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 60px 25px;
+        }
+
+        .hero-content h1 {
             max-width: 800px;
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.05;
+            margin-bottom: 25px;
         }
 
-        .hero h1 {
-            font-size: 52px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
+        .hero-content h1 span {
             color: #d4af37;
         }
 
-        .hero p {
+        .hero-content p {
+            max-width: 650px;
             font-size: 20px;
-            margin-bottom: 30px;
+            color: #eeeeee;
+            margin-bottom: 35px;
         }
 
         .buttons {
             display: flex;
-            justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
+            gap: 14px;
         }
 
         .btn {
             display: inline-block;
-            padding: 13px 25px;
-            border-radius: 5px;
+            padding: 14px 24px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
+            transition: 0.2s;
         }
 
         .btn-primary {
@@ -126,14 +141,24 @@
             color: #111;
         }
 
-        .btn-secondary {
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
             border: 2px solid white;
             color: white;
         }
 
-        /* SECTIONS */
+        .btn-outline:hover {
+            background: white;
+            color: #111;
+        }
+
+        /* GENERAL */
+
         section {
-            padding: 70px 20px;
+            padding: 80px 20px;
         }
 
         .container {
@@ -141,21 +166,22 @@
             margin: auto;
         }
 
-        .section-title {
+        .section-heading {
             text-align: center;
             margin-bottom: 45px;
         }
 
-        .section-title h2 {
-            font-size: 35px;
+        .section-heading h2 {
+            font-size: 38px;
             margin-bottom: 10px;
         }
 
-        .section-title p {
+        .section-heading p {
             color: #666;
         }
 
         /* SERVICES */
+
         .services {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -165,12 +191,12 @@
         .service-card {
             background: white;
             padding: 35px 25px;
+            border-radius: 12px;
             text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
         }
 
-        .service-card .icon {
+        .service-icon {
             font-size: 45px;
             margin-bottom: 15px;
         }
@@ -179,7 +205,12 @@
             margin-bottom: 10px;
         }
 
+        .service-card p {
+            color: #666;
+        }
+
         /* LISTINGS */
+
         .listings {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -188,32 +219,51 @@
 
         .listing-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
         }
 
         .listing-card img {
             width: 100%;
-            height: 220px;
+            height: 230px;
             object-fit: cover;
         }
 
-        .listing-info {
-            padding: 20px;
+        .listing-content {
+            padding: 22px;
         }
 
-        .listing-info h3 {
+        .listing-type {
+            display: inline-block;
+            background: #f0e4b5;
+            color: #725900;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .listing-content h3 {
+            font-size: 21px;
             margin-bottom: 8px;
         }
 
+        .location {
+            color: #666;
+            margin-bottom: 12px;
+        }
+
         .price {
-            color: #b08b00;
+            color: #9b7900;
+            font-size: 18px;
             font-weight: bold;
-            margin: 10px 0;
+            margin-bottom: 18px;
         }
 
         /* ABOUT */
+
         .about {
             background: white;
         }
@@ -225,30 +275,35 @@
         }
 
         .about-content p {
-            margin-bottom: 15px;
             color: #555;
+            margin-bottom: 15px;
+            font-size: 17px;
         }
 
         /* CONTACT */
+
         .contact {
             background: #111;
             color: white;
         }
 
-        .contact .section-title p {
-            color: #ccc;
+        .contact .section-heading p {
+            color: #bbb;
         }
 
-        .contact-info {
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
             text-align: center;
+        }
+
+        .contact-item {
+            margin: 15px 0;
             font-size: 18px;
         }
 
-        .contact-info p {
-            margin: 12px 0;
-        }
-
         /* FOOTER */
+
         footer {
             background: #050505;
             color: #aaa;
@@ -256,23 +311,16 @@
             padding: 25px 15px;
         }
 
-        footer span {
+        footer strong {
             color: #d4af37;
         }
 
         /* MOBILE */
-        @media (max-width: 800px) {
+
+        @media (max-width: 850px) {
 
             .nav-links {
                 display: none;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .hero p {
-                font-size: 17px;
             }
 
             .services,
@@ -280,8 +328,24 @@
                 grid-template-columns: 1fr;
             }
 
-            .section-title h2 {
-                font-size: 29px;
+            .hero {
+                min-height: 78vh;
+            }
+
+            .hero-content h1 {
+                font-size: 46px;
+            }
+
+            .hero-content p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
             }
         }
     </style>
@@ -290,11 +354,13 @@
 <body>
 
     <!-- NAVIGATION -->
+
     <header>
         <nav>
-            <div class="logo">
-                Kigali <span>Property</span>
-            </div>
+
+            <a href="#home" class="logo">
+                Kigali <span>Property Hub</span>
+            </a>
 
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -303,76 +369,104 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
         </nav>
     </header>
 
 
     <!-- HERO -->
+
     <section class="hero" id="home">
+
         <div class="hero-content">
 
             <h1>
-                Kigali <span>Property</span>
-                Hub
+                Find Your
+                <span>Next Place</span>
+                in Kigali
             </h1>
 
             <p>
-                Find your next home or the right car in Rwanda.
-                We connect you with properties and vehicles
-                for sale and rent.
+                Discover properties and vehicles for sale
+                and rent across Kigali, Rwanda.
             </p>
 
             <div class="buttons">
+
                 <a href="#listings" class="btn btn-primary">
-                    View Listings
+                    Explore Listings
                 </a>
 
-                <a href="#contact" class="btn btn-secondary">
+                <a href="#contact" class="btn btn-outline">
                     Contact Us
                 </a>
+
             </div>
 
         </div>
+
     </section>
 
 
     <!-- SERVICES -->
+
     <section id="services">
 
         <div class="container">
 
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Solutions for property and transportation needs.</p>
+            <div class="section-heading">
+
+                <h2>What We Offer</h2>
+
+                <p>
+                    Simple solutions for your property and
+                    transportation needs.
+                </p>
+
             </div>
+
 
             <div class="services">
 
                 <div class="service-card">
-                    <div class="icon">🏠</div>
-                    <h3>Real Estate</h3>
+
+                    <div class="service-icon">🏠</div>
+
+                    <h3>Properties</h3>
+
                     <p>
-                        Houses, apartments and other properties
-                        available for sale and rent.
+                        Find houses, apartments and other
+                        properties for sale or rent.
                     </p>
+
                 </div>
 
+
                 <div class="service-card">
-                    <div class="icon">🚗</div>
+
+                    <div class="service-icon">🚗</div>
+
                     <h3>Car Rentals</h3>
+
                     <p>
-                        Reliable vehicles available for
-                        short-term and long-term rental.
+                        Comfortable and reliable vehicles
+                        available for short or long-term rental.
                     </p>
+
                 </div>
 
+
                 <div class="service-card">
-                    <div class="icon">🔑</div>
+
+                    <div class="service-icon">🔑</div>
+
                     <h3>Car Sales</h3>
+
                     <p>
-                        Find quality vehicles for personal
-                        and business use.
+                        Explore vehicles available for
+                        personal and business use.
                     </p>
+
                 </div>
 
             </div>
@@ -382,32 +476,50 @@
     </section>
 
 
-    <!-- LISTINGS -->
+    <!-- FEATURED LISTINGS -->
+
     <section id="listings">
 
         <div class="container">
 
-            <div class="section-title">
+            <div class="section-heading">
+
                 <h2>Featured Listings</h2>
-                <p>Some of our available properties and vehicles.</p>
+
+                <p>
+                    Explore some of our available properties
+                    and vehicles.
+                </p>
+
             </div>
+
 
             <div class="listings">
 
+
                 <!-- PROPERTY -->
+
                 <div class="listing-card">
 
                     <img
-                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
-                        alt="Modern house">
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85"
+                        alt="Modern house in Kigali">
 
-                    <div class="listing-info">
+                    <div class="listing-content">
+
+                        <span class="listing-type">
+                            PROPERTY
+                        </span>
 
                         <h3>Modern House</h3>
 
+                        <p class="location">
+                            📍 Kigali, Rwanda
+                        </p>
+
                         <p>
-                            Beautiful property available
-                            in Kigali.
+                            Modern home available for
+                            sale or rent.
                         </p>
 
                         <div class="price">
@@ -425,15 +537,24 @@
 
 
                 <!-- CAR -->
+
                 <div class="listing-card">
 
                     <img
-                        src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80"
+                        src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85"
                         alt="Car available for rental">
 
-                    <div class="listing-info">
+                    <div class="listing-content">
+
+                        <span class="listing-type">
+                            CAR RENTAL
+                        </span>
 
                         <h3>Toyota Voxy</h3>
+
+                        <p class="location">
+                            📍 Kigali, Rwanda
+                        </p>
 
                         <p>
                             Comfortable family vehicle
@@ -444,9 +565,11 @@
                             Contact for price
                         </div>
 
-                        <a href="#contact"
-                           class="btn btn-primary">
-                            Rent Now
+                        <a
+                            href="https://wa.me/250798494841?text=Hello%20Kigali%20Property%20Hub%2C%20I%20am%20interested%20in%20the%20Toyota%20Voxy."
+                            target="_blank"
+                            class="btn btn-primary">
+                            WhatsApp
                         </a>
 
                     </div>
@@ -455,19 +578,28 @@
 
 
                 <!-- APARTMENT -->
+
                 <div class="listing-card">
 
                     <img
-                        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80"
+                        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85"
                         alt="Modern apartment">
 
-                    <div class="listing-info">
+                    <div class="listing-content">
+
+                        <span class="listing-type">
+                            APARTMENT
+                        </span>
 
                         <h3>Modern Apartment</h3>
 
+                        <p class="location">
+                            📍 Kigali, Rwanda
+                        </p>
+
                         <p>
-                            Comfortable apartment
-                            available in Kigali.
+                            Comfortable apartment available
+                            in Kigali.
                         </p>
 
                         <div class="price">
@@ -491,25 +623,29 @@
 
 
     <!-- ABOUT -->
+
     <section class="about" id="about">
 
         <div class="container">
 
-            <div class="section-title">
-                <h2>About Mugema Estate & Car Rentals</h2>
+            <div class="section-heading">
+
+                <h2>About Kigali Property Hub</h2>
+
             </div>
 
             <div class="about-content">
 
                 <p>
-                    Mugema Estate & Car Rentals is a Rwanda-based
-                    business connecting customers with properties
-                    and vehicles for sale and rent.
+                    Kigali Property Hub is a Rwanda-based
+                    platform connecting customers with
+                    properties and vehicles for sale and rent.
                 </p>
 
                 <p>
-                    Our goal is to make finding a home or vehicle
-                    simple, convenient and reliable.
+                    Our goal is to make finding a home,
+                    apartment or vehicle easier and more
+                    convenient.
                 </p>
 
             </div>
@@ -520,30 +656,46 @@
 
 
     <!-- CONTACT -->
+
     <section class="contact" id="contact">
 
         <div class="container">
 
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Let's help you find what you need.</p>
+            <div class="section-heading">
+
+                <h2>Get In Touch</h2>
+
+                <p>
+                    Interested in a property or vehicle?
+                    Contact us today.
+                </p>
+
             </div>
 
-            <div class="contact-info">
+            <div class="contact-box">
 
-                <p>📍 Kigali, Rwanda</p>
+                <div class="contact-item">
+                    📍 Kigali, Rwanda
+                </div>
 
-                <p>📞 +250 798 494 841</p>
+                <div class="contact-item">
+                    📞 +250 798 494 841
+                </div>
 
-                <p>✉️ nissmugema@gmail.com</p>
+                <div class="contact-item">
+                    ✉️ nissmugema@gmail.com
+                </div>
 
-                <div class="buttons" style="margin-top:25px;">
+                <div class="buttons"
+                     style="justify-content:center; margin-top:25px;">
 
                     <a
                         href="https://wa.me/250798494841"
-                        class="btn btn-primary"
-                        target="_blank">
-                        WhatsApp Us
+                        target="_blank"
+                        class="btn btn-primary">
+
+                        Chat on WhatsApp
+
                     </a>
 
                 </div>
@@ -556,11 +708,12 @@
 
 
     <!-- FOOTER -->
+
     <footer>
 
         <p>
             © 2026
-            <span>Mugema Estate & Car Rentals</span>.
+            <strong>Kigali Property Hub</strong>.
             All rights reserved.
         </p>
 
